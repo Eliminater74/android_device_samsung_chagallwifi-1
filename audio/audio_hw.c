@@ -257,14 +257,14 @@ static int get_output_device_id(audio_devices_t device)
         return OUT_DEVICE_SPEAKER;
     case AUDIO_DEVICE_OUT_EARPIECE:
         return OUT_DEVICE_EARPIECE;
+    case AUDIO_DEVICE_OUT_WIRED_HEADSET:
+        return OUT_DEVICE_HEADSET;
     case AUDIO_DEVICE_OUT_WIRED_HEADPHONE:
-        return OUT_DEVICE_WIRED_HEADPHONE
+        return OUT_DEVICE_HEADPHONES;
     case AUDIO_DEVICE_OUT_BLUETOOTH_SCO:
-        return OUT_DEVICE_BLUETOOTH_SCO;
     case AUDIO_DEVICE_OUT_BLUETOOTH_SCO_HEADSET:
-        return OUT_DEVICE_BLUETOOTH_SCO_HEADSET;
     case AUDIO_DEVICE_OUT_BLUETOOTH_SCO_CARKIT:
-        return OUT_DEVICE_BLUETOOTH_SCO_CARKIT;
+        return OUT_DEVICE_BT_SCO;
     default:
         return OUT_DEVICE_NONE;
     }
@@ -1441,7 +1441,7 @@ static int adev_set_parameters(struct audio_hw_device *dev, const char *kvpairs)
 
     ret = str_parms_get_str(parms, "noise_suppression", value, sizeof(value));
     if (ret >= 0) {
-        if (strcmp(value, "false") == 0) {
+        if (strcmp(value, "true") == 0) {
             ALOGV("%s: enabling two mic control", __func__);
             ril_set_two_mic_control(&adev->ril, AUDIENCE, TWO_MIC_SOLUTION_ON);
         } else {
