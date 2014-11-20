@@ -11,3 +11,5 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=chagallwifi \
     PRODUCT_DEVICE=chagallwifi \
     TARGET_DEVICE=chagallwifi \
+    BUILD_FINGERPRINT="samsung/chagallwifixx/chagallwifi:4.4.2/KOT49H/T800XXU1ANJ6:user/release-keys" \
+    PRIVATE_BUILD_DESC="chagallwifixx-user 4.4.2 KOT49H T800XXU1ANJ6 release-keys"
